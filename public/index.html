@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vietnam Luxury Hotel</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/gih.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,600,900" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/VIELUX.png" sizes="32x32" >
+  <link rel="icon" type="image/png" href="/img/VIELUX-16x16.png" sizes="16x16">
+  <link rel="shortcut icon" href="/VIELUX.ico">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#a3915e">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#242424">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <nav class="navbar navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Vietnam Luxury Hotel"></a>
+      </div>
+      <div class="navbar-right navbar-links"><a href="/my-account.html">Login</a></div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="hotel-slogan">
+      <img src="/img/logo-header1.png" alt="Vietnam Luxury Hotel">
+      <h1>Luxury and tradition since 2023.</h1>
+      <h2>Experience VIELUX. Experience Imperial.</h2>
+    </div>
+    <style>
+      .hotel-slogan h1, h2 {
+        color: rgb(227, 196, 156);
+        font-size: 24px;
+      }
+    </style>
+  </header>
+
+  <div class="container-fluid" id="booking-widget-container">
+    <div class="row">
+      <div class="col-md-2" id="booking-widget-label">Book<br>Now</div>
+      <div class="col-md-10" id="booking-widget">
+        <form action="/my-account.html" method="get">
+          <div class="input-group">
+            <label for="form--arrival-date">Arrival:</label>
+            <input class="form-control" type="date" id="form--arrival-date" name="form--arrival-date" value="2022-11-05">
+          </div>
+          <div class="input-group">
+            <label for="form--nights"># of nights:</label>
+            <input class="form-control" type="number" value="3" min="1" max="365" id="form--nights" name="form--nights">
+          </div>
+          <div class="input-group">
+            <label for="form--guests">Guests:</label>
+            <input class="form-control" type="number" value="2" min="1" max="10" id="form--guests" name="form--guests">
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-default btn-lg" type="submit">Check Availability</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" id="about-hotel-container">
+    <div class="row">
+      <div class="col-md-6 about-hotel-box" id="about-hotel--spa">
+        <h3>Elegant Spa &amp; Zen Gardens</h3>
+        <p>A haven of tranquility and relaxation, our elegant spa &amp; zen gardens offer a peaceful and pampering escape from the busy city life, right in the heart of Vielux.</p>
+      </div>
+      <div class="col-md-6 about-hotel-box" id="about-hotel--luxury">
+        <h3>Experience Luxury</h3>
+        <p>Experience the <em>Outstanding Comfort of Superior Amenities</em>&trade; in our rooms and suites.</p>
+      </div>
+    </div>
+  </div>
+  <!-- class="container-fluid" id="events-container">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-6 event-container calendar-link-container"><div class="event-card">
+        <div class="event-date">&nbsp;</div>
+        <img src="/img/event-calendar-link.jpg" alt="View events calendar" class="img-responsive" />
+        <h4>Your Calendar</h4>
+        <p>View upcoming events, and your reservations.</p>
+        <a href="/my-account.html">View Calendar</a>
+      </div></div>
+    </div>
+  </> -->
+  
+
+  <div class="container-fluid" id="map-container">
+    <script>
+      function initMap() {
+        var customMapType = new google.maps.StyledMapType([{"featureType":"all","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative.land_parcel","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#f3ece5"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#ddc9b6"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ad9379"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#e6d8ca"}]}], {
+          name: 'VieLux style'
+        });
+        var customMapTypeId = 'vielux_style';
+
+        var coordinates = {lat: 41.765148, lng: -87.574854};
+
+        var map = new google.maps.Map(document.getElementById('map-container'), {
+          zoom: 14,
+          center: coordinates,
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: false,
+          draggable: false,
+          mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+          }
+        });
+
+        var marker = new google.maps.Marker({
+          position: coordinates,
+          map: map,
+          title: 'Vietnam Luxury Hotel'
+        });
+        map.mapTypes.set(customMapTypeId, customMapType);
+        map.setMapTypeId(customMapTypeId);
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm9jndhfbcWByQnrivoaWAEQA8jy3COdE&callback=initMap"></script>
+  </div>
+
+  <div class="container" id="footer-container">
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Vietnam Luxury Hotel</h4>
+        <p>71 Pham Van Dong, Cau Giay</p>
+        <p>Ha Noi, Vietnam</p>
+        <p>&copy; VietGang Group</p>
+      </div>
+      <div class="col-md-3">
+        <h4>About us</h4>
+        <div class="row contact-details-row">
+          <div class="col-xs-4"><i class="fa-solid fa-phone-volume"></i>Hotline:</div>
+          <div class="col-xs-8">+84 8676 264 96</div>
+        </div>
+        <div class="row contact-details-row">
+          <div class="col-xs-4"><i class="fa-brands fa-facebook"></i>Facebook:</div>
+          <div class="col-xs-8">
+            <a href="https://www.facebook.com/profile.php?id=100060799714031">
+              Hiep Tran
+            </a>
+          </div>
+        </div>
+        <div class="row contact-details-row">
+          <div class="col-xs-4"><i class="fa-brands fa-square-instagram"></i>Instagram:</div>
+          <div class="col-xs-8">
+            <a href="https://www.instagram.com/hieptran847/">
+              hieptran847
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-offset-1 col-md-5">
+        <div class="row slogan-row">
+          <div class="col-xs-6"><img src="/img/logo.png" alt="Gotham Imperial Hotel"></div>
+          <div class="col-xs-6">
+            <p>Experience the Outstanding Comfort of Superior Amenities&trade;</p>
+            <p>&copy; 2023 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+
+  <script src="/js/vendor/progressive-ui-kitt/progressive-ui-kitt.js"></script>
+  <script>
+  ProgressiveKITT.setStylesheet("/js/vendor/progressive-ui-kitt/themes/flat.css");
+  ProgressiveKITT.render();
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-80099555-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
